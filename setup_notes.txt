@@ -1,0 +1,64 @@
+* create the package.json file
+    npm init -y
+
+* Install webpack in dev
+    npm install webpack webpack-cli --save-dev
+
+* Create 2 files in the prject's root
+    create folder and named it "src"
+    inside src create a js file and named it "index.js"
+
+* Para compilar el archivo index.js with webpack. This should create a new folder called "dist"
+* In the dist folder you will find the main.js files that was compiled and executed by webpack
+    npx webpack src/index.js
+
+    * To test the compiled file main.js
+        node dist/main.js
+
+    * Now since we want to see our site in html let's intall a plugin
+        npm install html-webpack-plugin --save-dev
+
+        * In order to use this new plugin we need to create a new file in the root
+            Create a file and name it "webpack.config.js"
+
+    * Let's compile and test the main.js again but this time using the scripts from package.json
+        * add a new script in the package.json: "build": "webpack" then run the below
+        npm run build
+
+* Now let's install the webpack dev server to host our html
+    npm install webpack-dev-server --save-dev
+
+    * add a new script in the package.json: "dev": "webpack serve --mode development --env development" _
+        then run the below
+        npm run dev  ---> now you can test you site from the browser http://localhost:8080/
+
+
+Now Let's add React
+====================
+
+* Install React
+    npm install react react-dom
+
+* Install babel core so it can understand jsx and others
+    npm install @babel/core @babel/preset-env babel-loader --save-dev
+    npm install @babel/preset-react --save-dev
+
+    * Now configure the above in webpack.config.js and run your project again. HTML will be recognized
+
+
+Para que el desarrollo sea más ágil y correcto
+==============================================
+
+* Install StandarJS
+    npm install standard --save-dev
+
+    * then add "lint": "standard", in the scripts section in package.json
+    * then run: npm run lint ----> these should give errors to fix in the project
+
+* Install on VS Code the ESLint extension
+
+Deploy the API folder in VERCEL
+===============================
+
+* Install VERCEL
+    npm i -g vercel
